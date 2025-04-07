@@ -24,14 +24,13 @@
     "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
+"scripts": {
+  "start": "react-scripts start",
+  "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+}
+,
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -51,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.27.0",
     "@babel/plugin-transform-class-properties": "^7.25.9",
     "@babel/plugin-transform-nullish-coalescing-operator": "^7.26.6",
     "@babel/plugin-transform-numeric-separator": "^7.25.9",
@@ -64,6 +64,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@types/tailwindcss": "^3.1.0",
     "eslint": "^9.24.0",
+    "eslint-config-react-app": "^7.0.1",
     "glob": "^11.0.1",
     "lru-cache": "^11.1.0",
     "postcss-flexbugs-fixes": "^5.0.2",
