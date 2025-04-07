@@ -24,13 +24,12 @@
     "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
-"scripts": {
-  "start": "react-scripts start",
-  "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
-}
-,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -63,7 +62,7 @@
     "@jridgewell/sourcemap-codec": "^1.5.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@types/tailwindcss": "^3.1.0",
-    "eslint": "^9.24.0",
+    "eslint": "^8.57.0",
     "eslint-config-react-app": "^7.0.1",
     "glob": "^11.0.1",
     "lru-cache": "^11.1.0",
