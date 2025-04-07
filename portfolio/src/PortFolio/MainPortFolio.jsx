@@ -2,7 +2,6 @@ import React from 'react';
 import NavBar from './NavBar';
 import Home from './Home';
 import About from './About';
-import MyWork from './MyWork.jsx';
 import Skills from './Skills.jsx';
 import Connect_with_Me from './Connect_with_Me.jsx';
 import ServicesSection from './Service.jsx';

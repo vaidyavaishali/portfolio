@@ -5,7 +5,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import pdf from '../assets/VaishaliVaidyaResume.pdf';
 import swal from 'sweetalert';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const Connect_with_Me = () => {
   const ref = useRef(null);

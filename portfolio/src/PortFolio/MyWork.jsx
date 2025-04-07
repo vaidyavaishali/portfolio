@@ -3,7 +3,6 @@ import { motion, useInView } from 'framer-motion';
 import edtech from '../assets/futuristic-portrait-young-girl-with-high-tech.jpg';
 import ct from '../assets/empty-town-square.jpg';
 import flyaway from '../assets/construction-building-architecture-concept.jpg';
-import Aviator from '../assets/aviator.png';
 
 const PortfolioSection = () => {
   const ref = useRef(null);
