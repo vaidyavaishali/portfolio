@@ -1,0 +1,503 @@
+html {
+    scroll-padding-top: 80px; /* Adjust based on your sticky navbar height */
+    scroll-behavior: smooth;
+  }
+
+  /* Keyframes for additional effects */
+/* Add these new styles to your existing CSS */
+
+.luxury-content-wrapper {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.luxury-text-content {
+  flex: 1;
+  padding-right: 5rem;
+  max-width: 700px;
+}
+
+.luxury-image-container {
+  flex-shrink: 0;
+  width: 350px;
+  height: 350px;
+  position: relative;
+  z-index: 10;
+}
+
+.luxury-image-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 1000px;
+}
+
+.luxury-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.3);
+}
+
+.luxury-image-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, #66ffcc, #b3ff66);
+  border-radius: 30px;
+  z-index: 1;
+  filter: blur(20px);
+  opacity: 0.3;
+  animation: glow-pulse 6s ease infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+.luxury-image-border {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid rgba(102, 255, 204, 0.5);
+  border-radius: 22px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .luxury-content-wrapper {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  
+  .luxury-text-content {
+    padding-right: 0;
+    margin-top: 3rem;
+  }
+  
+  .luxury-image-container {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 2rem;
+  }
+  
+  .luxury-heading {
+    justify-content: center;
+  }
+  
+  .luxury-button-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .luxury-image-container {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better font rendering for animated text */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Performance optimizations */
+*, *::before, *::after {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Base styles */
+.luxury-home-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0c10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e8f9f3;
+  perspective: 1000px;
+}
+
+/* Animated gradient background */
+.luxury-gradient-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #0a0c10 0%,
+    #0f172a 20%,
+    #1e293b 40%,
+    #334155 60%,
+    #1e293b 80%,
+    #0f172a 100%
+  );
+  background-size: 300% 300%;
+  z-index: 0;
+}
+
+/* Diamond grid overlay */
+.diamond-grid-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.diamond {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: linear-gradient(45deg, #66ffcc, transparent);
+}
+
+/* Main content styles */
+.luxury-content-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  will-change: transform;
+}
+
+.luxury-heading {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.luxury-heading-char {
+  display: inline-block;
+  transform-origin: bottom center;
+}
+
+.luxury-name {
+  background: linear-gradient(90deg, #66ffcc, #b3ff66);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.luxury-comma {
+  display: inline-block;
+}
+
+/* Typing animation styles */
+.luxury-typing-container {
+  margin: 2rem 0;
+}
+
+.luxury-typing-text {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.luxury-typed-text {
+  color: #66ffcc;
+  font-weight: 400;
+  position: relative;
+}
+
+.luxury-typed-text::after {
+  content: '▐';
+  animation: blink 1s infinite;
+  color: #66ffcc;
+  position: absolute;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Luxury button styles */
+.luxury-button-container {
+  margin-top: 3rem;
+}
+
+.luxury-button {
+  position: relative;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #66ffcc, #b3ff66);
+  color: #0a0c10;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.luxury-button-text {
+  position: relative;
+  z-index: 2;
+}
+
+.luxury-button-arrow {
+  position: relative;
+  z-index: 2;
+}
+
+.luxury-button-hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0,0,0,0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: 1;
+}
+
+.luxury-button:hover .luxury-button-hover-effect {
+  transform: translateX(0);
+}
+
+.luxury-button-edge-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(90deg, #66ffcc, #b3ff66);
+  z-index: -1;
+  border-radius: 50px;
+  filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.luxury-button:hover .luxury-button-edge-glow {
+  opacity: 0.6;
+}
+
+/* Particle system */
+.luxury-particle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.luxury-particle.circle {
+  border-radius: 50%;
+  background: radial-gradient(circle, #66ffcc, transparent);
+}
+
+.luxury-particle.triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: linear-gradient(45deg, #66ffcc, transparent);
+}
+
+/* Floating elements */
+.luxury-floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.luxury-orb {
+  position: absolute;
+  width: 40vmin;
+  height: 40vmin;
+  background: radial-gradient(circle, rgba(102, 255, 204, 0.1), transparent 70%);
+  border-radius: 50%;
+  top: 20%;
+  left: 60%;
+  filter: blur(40px);
+}
+
+.luxury-floating-shape {
+  position: absolute;
+  opacity: 0;
+}
+
+.luxury-floating-shape.triangle {
+  width: 100px;
+  height: 100px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: linear-gradient(45deg, rgba(102, 255, 204, 0.2), transparent);
+  top: 70%;
+  left: 20%;
+}
+
+.luxury-floating-shape.diamond {
+  width: 150px;
+  height: 150px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: linear-gradient(45deg, rgba(179, 255, 102, 0.1), transparent);
+  top: 10%;
+  left: 80%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .luxury-content-container {
+    text-align: center;
+  }
+  
+  .luxury-button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .luxury-orb {
+    display: none;
+  }
+}
+
+/* Project card hover effect */
+.group:hover .project-card {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px -12px rgba(102, 255, 204, 0.25);
+}
+
+/* Smooth transitions */
+.project-card {
+  transition: all 0.4s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+}
+
+/* Image zoom effect */
+.project-image {
+  transition: transform 1.5s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+}
+
+/* Gradient text for special elements */
+.gradient-text {
+  background: linear-gradient(90deg, #66ffcc, #b3ff66);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better font rendering for animated text */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Input focus effects */
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 2px rgba(102, 255, 204, 0.5);
+}
+
+/* Button hover effect */
+button:hover {
+  box-shadow: 0 10px 20px -5px rgba(102, 255, 204, 0.3);
+}
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better font rendering for animated text */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Timeline dot animation */
+.timeline-dot {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-dot:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(102, 255, 204, 0.2);
+}
+
+/* Progress bar glow effect */
+.progress-bar {
+  box-shadow: 0 0 10px rgba(102, 255, 204, 0.3);
+}
+/* Override the SweetAlert modal */
+/* Make the modal background black */
+/* Style the main modal background */
+/* SweetAlert Dark Theme */
+.swal-dark-theme {
+  background-color: #0a0c10 !important;
+  border: 1px solid #66ffcc !important;
+}
+
+.swal-small-popup {
+  width: 100px !important;
+  height: 10px;
+  padding: 0px !important;
+  border-radius: 10px !important;
+}
+
+.swal-title {
+  color: #66ffcc !important;
+  font-size: 1.2rem !important;
+}
+
+.swal-text {
+  color: #e8f9f3 !important;
+  font-size: 0.9rem !important;
+}
+
+.swal-confirm-btn {
+  /* background-color: #66ffcc !important; */
+  color: #0a0c10 !important;
+  border: none !important;
+  padding: 8px 20px !important;
+  border-radius: 5px !important;
+  font-size: 0.8rem !important;
+  transition: all 0.9s !important;
+}
+
+.swal-confirm-btn:hover {
+  background-color: #b3ff66 !important;
+  transform: scale(1.05) !important;
+}
+
+.swal-confirm-btn:active {
+  transform: scale(0.98) !important;
+}

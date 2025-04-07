@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    overflow-x: hidden;
+}
+html {
+    scroll-behavior: smooth;
+  }
+  .nav-link {
+    position: relative;
+    cursor: pointer;
+
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #ffffff;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  .active{
+    background-color: rgb(41, 39, 39);
+  }
+  
+  .nav-link.active::after {
+    width: 100%; /* Full width underline when active */
+   
+  }
+  
+  /* Optional: Add hover effect for non-active links */
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  
