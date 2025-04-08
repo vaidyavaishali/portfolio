@@ -46,3 +46,71 @@
 .work-img:hover .project-link-div {
   height: 60px; /* Change height on hover */
 }
+
+/* index.css */
+/* Custom slider styles */
+.portfolio-slider {
+  padding: 20px 0;
+  /* height: 200px; */
+}
+
+.portfolio-slider .slick-slide > div {
+  padding: 0 10px;
+
+}
+
+.portfolio-slider .slick-list {
+  margin: 0 -10px;
+  overflow: visible;
+}
+
+.slick-dots-container {
+  position: relative;
+  margin-top: 40px;
+}
+
+.slick-dots-container ul {
+  display: flex !important;
+  justify-content: center;
+  gap: 8px;
+}
+
+.custom-dot {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: hidden;
+}
+
+.dot-inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #66ffcc;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.slick-active .dot-inner {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background-color: #66ffcc;
+}
+
+/* Navigation arrows - customize as needed */
+.slick-prev:before,
+.slick-next:before {
+  color: #66ffcc;
+  font-size: 24px;
+}
+
+.slick-prev {
+  left: -30px;
+}
+
+.slick-next {
+  right: -30px;
+}

@@ -38,8 +38,9 @@ const ServicesSection = () => {
       tech: ["Keyword Research", "Technical SEO", "Analytics", "Content Strategy"]
     },
     {
-      title: "Performance Optimization",
-      description: "Lightning-fast applications with optimized load times and smooth interactions",
+      title: "E commerce Websites",
+      description: "Full-featured e-commerce solutions with payment integration and user management",
+      // description: "Lightning-fast applications with optimized load times and smooth interactions",
       icon: <FaRocket className="text-4xl mb-4 text-[#66ffcc]" />,
       tech: ["Lighthouse", "Bundle Optimization", "Caching", "CDN"]
     }
