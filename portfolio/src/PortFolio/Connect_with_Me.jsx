@@ -7,9 +7,11 @@ import pdf from '../assets/VaishaliVaidyaResume.pdf';
 import swal from 'sweetalert';
 import { toast } from 'react-toastify';
 
+
 const Connect_with_Me = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -66,7 +68,7 @@ const Connect_with_Me = () => {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
-
+  setLoading(true);
     try {
       // const res = await fetch("http://localhost:5000/api/form/submit",
       const res = await fetch("https://portfolio-api-omega-kohl.vercel.app/api/form/submit",
@@ -108,6 +110,8 @@ const Connect_with_Me = () => {
     } catch (error) {
       toast.error("Something went wrong!");
       console.error(error.message);
+    }finally {
+      setLoading(false); // hide loader
     }
   };
 
@@ -297,12 +301,19 @@ const Connect_with_Me = () => {
               <motion.button
                 type="submit"
                 onClick={handlesubmit}
-                className="w-full px-6 py-3 bg-gradient-to-r from-[#66ffcc] to-[#b3ff66] text-[#0a0c10] font-medium rounded-lg hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#66ffcc] focus:ring-offset-2 focus:ring-offset-[#0f172a] flex items-center justify-center gap-2"
+                className="w-full px-6 py-3 bg-gradient-to-r from-[#66ffcc] to-[#b3ff66] text-[#0a0c10] font-medium rounded-lg hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#66ffcc] focus:ring-offset-2 focus:ring-offset-[#0f172a] flex items-center justify-center gap-2 disabled:opacity-50"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                disabled={loading}
               >
-                <FontAwesomeIcon icon={faPaperPlane} />
-                <span>Send Message</span>
+                {loading ? (
+                  <span className="animate-spin border-2 border-white border-t-transparent rounded-full h-5 w-5"></span>
+                ) : (
+                  <>
+                    <FontAwesomeIcon icon={faPaperPlane} />
+                    <span>Send Message</span>
+                  </>
+                )}
               </motion.button>
             </motion.div>
           </motion.form>
