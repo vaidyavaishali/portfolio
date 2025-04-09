@@ -36,7 +36,7 @@ export const submitForm = async (req, res) => {
     res.status(200).json({ message: "Form submitted and email sent!" });
   } catch (error) {
     console.error("Form submission error:", error);
-    res.status(500).json({ error: "Failed to submit form" });
+    res.status(500).json({ error: error.message });
   }
 };
 

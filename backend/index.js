@@ -15,6 +15,7 @@ const corsOptions = {
   allowedHeaders: ["Content-Type"],
   credentials: true
 };
+// app.use(cors());
 app.use(cors(corsOptions));
 
 app.use(express.json());

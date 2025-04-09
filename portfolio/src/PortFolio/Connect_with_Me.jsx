@@ -68,12 +68,14 @@ const Connect_with_Me = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("https://portfolio-backend-szts.onrender.com/api/form/submit", {
+      // const res = await fetch("http://localhost:5000/api/form/submit",
+      const res = await fetch("https://portfolio-backend-szts.onrender.com/api/form/submit",
+         {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        credentials: 'include', // Only if you need cooki
+        // credentials: 'include', // Only if you need cooki
         body: JSON.stringify(formData)
       });
       console.log(res);

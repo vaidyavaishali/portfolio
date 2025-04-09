@@ -3,23 +3,23 @@ import mongoose from "mongoose";
 const formSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        // required: true,
     },
     email: {
         type: String,
-        required: true,
+        // required: true,
     },
     phone: {
         type: String,
-        required: true,
+        // required: true,
     },
     subject: {
         type: String,
-        required: true,
+        // required: true,
     },
     message: {
         type: String,
-        required: true,
+        // required: true,
     },
     createdAt: {
         type: Date,
