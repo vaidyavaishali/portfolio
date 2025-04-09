@@ -43,7 +43,7 @@ const PortfolioSection = () => {
     {
       title: "Color Prediction Game",
       description: "Developed Interactive Color Prediction Game. Predict the color of next circle.",
-      link: "https://color-prediction-six.vercel.app/",
+      link: "https://color-prediction-six.vercel.app/color",
       image: color,
       tech: ["React Vite", "NodeJs", "Express", "MongoDB"]
     },
