@@ -7,8 +7,12 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import edtech from '../assets/futuristic-portrait-young-girl-with-high-tech.jpg';
 import ct from '../assets/empty-town-square.jpg';
 import flyaway from '../assets/construction-building-architecture-concept.jpg';
-import color from '../assets/colorpng.png';
-
+import color from '../assets/colorPrediction.jpg';
+import titli from '../assets/titliImage.jpg';
+import mine from '../assets/mine.jpg';
+import cricket from '../assets/cricket.jpg';
+import dashboard from '../assets/dashboard.jpg';
+// import color 
 const PortfolioSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
@@ -20,25 +24,25 @@ const PortfolioSection = () => {
       description: "Developed Interactive SEO-friendly Edtech Website With CMS",
       link: "https://techmomentum-psi.vercel.app/",
       image: edtech,
-      tech: [ "Next.Js", "MongoDB", "Tailwind"]
+      tech: [ "Next.Js", "MongoDB", "Tailwind", "Rest API", "JWT"]
     },
     {
       title: "Conscientious Technology Website",
       description: "Developed Responsive UI With CMS for managing Content",
       link: "https://conscientious-technology.vercel.app",
-      image: ct,
+      image: flyaway,
       tech: ["React.js", "Node.js", "CMS", "Material UI", "Tailwind"]
     },
     {
       title: "Flyaway Airport Parking",
       description: "Airport Car Parking Management System Web App",
       link: "https://demoairportparking.netlify.app",
-      image: flyaway,
+      image: ct,
       tech: ["React", "NodeJS", "MongoDb", "Framer Motion", "Paypal"]
     },
     {
       title: "Color Prediction Game",
-      description: "Developed Interactive Color Prediction Game",
+      description: "Developed Interactive Color Prediction Game. Predict the color of next circle.",
       link: "https://color-prediction-six.vercel.app/",
       image: color,
       tech: ["React Vite", "NodeJs", "Express", "MongoDB"]
@@ -47,37 +51,37 @@ const PortfolioSection = () => {
       title: "E dashboard",
       description: "Developed Demo of Dashboard for E-commerce Using Live Api",
       link: "https://edashboard-nine.vercel.app/",
-      image: color,
-      tech: ["React", "Nodejs","React query", "Mapbox"]
+      image: dashboard,
+      tech: ["React", "Nodejs","React query", "Tailwind CSS"]
     },
     {
       title: "Mines Blast Game",
       description: "Developed a user interactive mines game where you can play and challenge yourself",
       link: "https://www.98fastbet.com/casino/mines",
-      image: color,
-      tech: ["React","React query", "Tailwind CSS"]
+      image: mine,
+      tech: ["React","Nodejs", "MongoDB", "Tailwind CSS"]
     },
     {
       title: "Cricket Betting Game",
       description: "Developed Cricket Player Betting Game with live API",
       link: "https://www.98fastbet.com/casino/mines",
-      image: color,
+      image: cricket,
       tech: ["React", "Nodejs","Styled Component", "MongoDB", "Socket.io" ]
     },
     {
       title: "Titli Patta Game",
       description: "Created a game where images are displayed continuously, allowing users to select an image card to win.",
       link: "https://www.98fastbet.com/casino/titli",
-      image: color,
+      image: titli,
       tech: ["React", "Nodejs","Styled Component", "MongoDB", "Socket.io" ]
     },
-    {
-      title: "Kudo Spot",
-      description: "Developed a web app for users to vote on their favorite music artists and tracks",
-      link: "https://www.98fastbet.com/casino/titli",
-      image: color,
-      tech: ["React", "Nodejs","Styled Component", "MongoDB", "Socket.io" ]
-    },
+    // {
+    //   title: "Kudo Spot",
+    //   description: "Developed a web app for users to vote on their favorite music artists and tracks",
+    //   link: "https://www.98fastbet.com/casino/titli",
+    //   image: color,
+    //   tech: ["React", "Nodejs","Styled Component", "MongoDB", "Socket.io" ]
+    // },
   ];
 
   // Custom Arrow Components
@@ -200,7 +204,7 @@ const PortfolioSection = () => {
                 transition={{ type: 'spring', stiffness: 400 }}
               >
                 {/* Project card with fixed height */}
-                <div className="relative z-10 h-auto md:h-[450px] flex flex-col bg-gradient-to-br from-[#0f172a] to-[#1e293b] rounded-xl shadow-2xl overflow-hidden border border-[#66ffcc]/20 transition-all duration-300 group-hover:border-[#66ffcc]/50">
+                <div className="relative z-10 h-auto md:h-[470px] flex flex-col bg-gradient-to-br from-[#0f172a] to-[#1e293b] rounded-xl shadow-2xl overflow-hidden border border-[#66ffcc]/20 transition-all duration-300 group-hover:border-[#66ffcc]/50">
                   {/* Image container with fixed aspect ratio */}
                   <div className="relative h-44 overflow-hidden flex-shrink-0">
                     <motion.img
