@@ -8,7 +8,6 @@ export const submitForm = async (req, res) => {
     // Save to MongoDB
     const form = new FormModel({ name, email, phone, subject, message });
     await form.save();
-
     // Send email using nodemailer
     const transporter = nodemailer.createTransport({
       service: "gmail",
