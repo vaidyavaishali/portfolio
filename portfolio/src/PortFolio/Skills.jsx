@@ -26,6 +26,30 @@ const Skills = () => {
     }
   ];
 
+  const experience = [
+    {
+      role: "Full Stack Developer",
+      company: "Infusion Pvt Ltd.",
+      period: "2025 - Present",
+      responsibilities: [
+        "Assisted in building and maintaining client websites",
+        "Implemented new features using React and Node.js",
+        "Worked with RESTful APIs and integrated third-party services",
+        "Participated in code reviews and team meetings"
+      ]
+    },
+    {
+      role: "Jr Full Stack Developer",
+      company: "Conscientious Technologies",
+      period: "2023 - 2025",
+      responsibilities: [
+        "Developed responsive web applications using React.js and Next.js",
+        "Collaborated with UX designers to implement pixel-perfect interfaces",
+        "Optimized application performance reducing load times by 40%",
+      ]
+    }
+  ];
+
   const skills = [
     { name: "JavaScript", level: 90, category: "Frontend" },
     { name: "React.js", level: 90, category: "Frontend" },
@@ -115,36 +139,66 @@ const Skills = () => {
         </motion.h2>
 
         <div className="flex flex-col lg:flex-row gap-16">
-          {/* Education Section */}
-          <motion.div 
-            className="w-full lg:w-[40%]"
-            variants={container}
-          >
-            <motion.h3 
-              className="text-3xl lg:text-4xl mb-8 text-[#66ffcc] font-medium"
-              variants={item}
-            >
-              Education
-            </motion.h3>
+          {/* Left Column - Education & Experience */}
+          <div className="w-full lg:w-[40%] space-y-16">
+            {/* Education Section */}
+            <motion.div variants={container}>
+              <motion.h3 
+                className="text-3xl lg:text-4xl mb-8 text-[#66ffcc] font-medium"
+                variants={item}
+              >
+                Education
+              </motion.h3>
 
-            <div className="space-y-8">
-              {education.map((edu, index) => (
-                <motion.div 
-                  key={index}
-                  className="relative pl-8 border-l-2 border-[#66ffcc]/30 group"
-                  variants={item}
-                  whileHover={{ x: 5 }}
-                >
-                  <div className="absolute left-0 w-4 h-4 rounded-full bg-[#66ffcc] transform -translate-x-1/2 top-1 group-hover:scale-125 transition-transform" />
-                  <h4 className="text-2xl font-medium mb-1">{edu.title}</h4>
-                  <p className="text-xl text-[#66ffcc] mb-2">{edu.institution} • {edu.year}</p>
-                  <p className="text-[#94a3b8]">{edu.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+              <div className="space-y-8">
+                {education.map((edu, index) => (
+                  <motion.div 
+                    key={index}
+                    className="relative pl-8 border-l-2 border-[#66ffcc]/30 group"
+                    variants={item}
+                    whileHover={{ x: 5 }}
+                  >
+                    <div className="absolute left-0 w-4 h-4 rounded-full bg-[#66ffcc] transform -translate-x-1/2 top-1 group-hover:scale-125 transition-transform" />
+                    <h4 className="text-2xl font-medium mb-1">{edu.title}</h4>
+                    <p className="text-xl text-[#66ffcc] mb-2">{edu.institution} • {edu.year}</p>
+                    <p className="text-[#94a3b8]">{edu.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
-          {/* Skills Section */}
+            {/* Experience Section */}
+            <motion.div variants={container}>
+              <motion.h3 
+                className="text-3xl lg:text-4xl mb-8 text-[#66ffcc] font-medium"
+                variants={item}
+              >
+                Experience
+              </motion.h3>
+
+              <div className="space-y-8">
+                {experience.map((exp, index) => (
+                  <motion.div 
+                    key={index}
+                    className="relative pl-8 border-l-2 border-[#66ffcc]/30 group"
+                    variants={item}
+                    whileHover={{ x: 5 }}
+                  >
+                    <div className="absolute left-0 w-4 h-4 rounded-full bg-[#66ffcc] transform -translate-x-1/2 top-1 group-hover:scale-125 transition-transform" />
+                    <h4 className="text-2xl font-medium mb-1">{exp.role}</h4>
+                    <p className="text-xl text-[#66ffcc] mb-2">{exp.company} • {exp.period}</p>
+                    <ul className="text-[#94a3b8] list-disc pl-5 space-y-1">
+                      {exp.responsibilities.map((responsibility, i) => (
+                        <li key={i}>{responsibility}</li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column - Skills */}
           <motion.div 
             className="w-full lg:w-[60%]"
             variants={container}
