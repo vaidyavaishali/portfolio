@@ -68,7 +68,7 @@ const Connect_with_Me = () => {
     e.preventDefault();
   
     try {
-      const res = await fetch("http://localhost:5000/api/form/submit", {
+      const res = await fetch("https://portfolio-api-omega-kohl.vercel.app/api/form/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
