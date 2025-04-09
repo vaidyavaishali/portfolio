@@ -73,7 +73,7 @@ const Connect_with_Me = () => {
         headers: {
           "Content-Type": "application/json"
         },
-        credentials: 'include' // Only if you need cooki
+        credentials: 'include', // Only if you need cooki
         body: JSON.stringify(formData)
       });
   
