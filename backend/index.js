@@ -7,7 +7,12 @@ import formRoutes from "./route/formRouter.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: "https://vaishaliportfolio-rouge.vercel.app", // Replace with your frontend URL
+  methods: ["GET", "POST"],
+  credentials: true,
+}));
 app.use(express.json());
 
 mongoose.connect("mongodb+srv://vaishvaidya11:vaishvaidya11@cluster0.ec5ttwd.mongodb.net/", {
