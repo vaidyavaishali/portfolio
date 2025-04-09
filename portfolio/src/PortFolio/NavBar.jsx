@@ -32,6 +32,41 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+  let lastScrollY = window.scrollY;
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    const isScrollingUp = currentScrollY < lastScrollY;
+
+    // Only hide on mobile
+    if (window.innerWidth < 768) {
+      setIsVisible(isScrollingUp || currentScrollY <= 0);
+    } else {
+      setIsVisible(true); // Always visible on desktop
+    }
+
+    // Update last scroll position
+    lastScrollY = currentScrollY;
+
+    // Update active section
+    sections.forEach((section) => {
+      const sectionElement = document.querySelector(section);
+      if (sectionElement) {
+        const offsetTop = sectionElement.offsetTop - 80;
+        const offsetBottom = offsetTop + sectionElement.offsetHeight;
+        if (currentScrollY >= offsetTop && currentScrollY < offsetBottom) {
+          setActiveNav(section);
+        }
+      }
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
+
   return (
     <div className={`px-0 md:px-3 py-2 box-border lg:py-0 lg:px-[80px] bg-[black] sticky top-0 z-10 transition-all duration-300 ${isVisible ? 'opacity-100' : 'opacity-70'}`}>
       <div className='max-w-[1280px]  px-8 py-[12px] box-border mx-auto flex justify-between items-center'>
