@@ -8,25 +8,53 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
+// Enhanced CORS configuration
+const corsOptions = {
   origin: "https://vaishaliportfolio-rouge.vercel.app",
   methods: ["GET", "POST", "OPTIONS"],
-  credentials: true,
-}));
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+};
 
-app.options("*", cors()); // Handles preflight requests
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Specific preflight handling
 
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://vaishvaidya11:vaishvaidya11@cluster0.ec5ttwd.mongodb.net/", {
+// MongoDB Connection with better error handling
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://vaishvaidya11:vaishvaidya11@cluster0.ec5ttwd.mongodb.net/", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => console.log("MongoDB Connected"))
-.catch(err => console.error("MongoDB Error:", err));
+.catch(err => console.error("MongoDB Connection Error:", err));
 
+// Connection event handlers
+mongoose.connection.on("connected", () => {
+  console.log("Mongoose connected to DB");
+});
+
+mongoose.connection.on("error", (err) => {
+  console.error("Mongoose connection error:", err);
+});
+
+mongoose.connection.on("disconnected", () => {
+  console.log("Mongoose disconnected");
+});
+
+// Routes
 app.use("/api/form", formRoutes);
 
-const PORT = 5000;
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Health check endpoint
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "OK" });
+});
+
+const PORT = process.env.PORT || 5000;
+
+// Only start server if not in test environment
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
 export default app;
