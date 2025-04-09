@@ -7,12 +7,15 @@ import formRoutes from "./route/formRouter.js";
 dotenv.config();
 
 const app = express();
-// app.use(cors());
+
 app.use(cors({
-  origin: ["https://vaishaliportfolio-rouge.vercel.app", "*"], // Replace with your frontend URL
-  methods: ["GET", "POST"],
+  origin: "https://vaishaliportfolio-rouge.vercel.app",
+  methods: ["GET", "POST", "OPTIONS"],
   credentials: true,
 }));
+
+app.options("*", cors()); // Handles preflight requests
+
 app.use(express.json());
 
 mongoose.connect("mongodb+srv://vaishvaidya11:vaishvaidya11@cluster0.ec5ttwd.mongodb.net/", {
@@ -24,5 +27,6 @@ mongoose.connect("mongodb+srv://vaishvaidya11:vaishvaidya11@cluster0.ec5ttwd.mon
 
 app.use("/api/form", formRoutes);
 
-const PORT =  5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = 5000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+export default app;
