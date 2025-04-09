@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 // app.use(cors());
 app.use(cors({
-  origin: "https://vaishaliportfolio-rouge.vercel.app", // Replace with your frontend URL
+  origin: "*", // Replace with your frontend URL
   methods: ["GET", "POST"],
   credentials: true,
 }));
