@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-import formRoutes from "./routes/formRoutes.js";
+import formRoutes from "./route/formRouter.js";
 
 dotenv.config();
 
@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb+srv://vaishvaidya11:vaishvaidya11@cluster0.ec5ttwd.mongodb.net/", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

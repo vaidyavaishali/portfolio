@@ -26,42 +26,88 @@ const Connect_with_Me = () => {
     }));
   };
 
-  const handlesubmit = (e) => {
-    e.preventDefault();
-    toast.success("Message sent successfully", )
-    swal({
-      title: "Thank You!",
-      text: "I will get back to you soon.",
-      // icon: "success",
-      buttons: {
-        confirm: {
-          text: "OK",
-          value: true,
-          visible: true,
-          className: "swal-confirm-btn",
-          closeModal: true
-        }
-      },
-      className: "swal-dark-theme",
-      customClass: {
-        popup: 'swal-small-popup',
-        title: 'swal-title',
-        // content: 'swal-text',
-        confirmButton: 'swal-confirm-btn'
-      }
-    });
+  // const handlesubmit = (e) => {
+  //   e.preventDefault();
+  //   toast.success("Message sent successfully", )
+  //   swal({
+  //     title: "Thank You!",
+  //     text: "I will get back to you soon.",
+  //     // icon: "success",
+  //     buttons: {
+  //       confirm: {
+  //         text: "OK",
+  //         value: true,
+  //         visible: true,
+  //         className: "swal-confirm-btn",
+  //         closeModal: true
+  //       }
+  //     },
+  //     className: "swal-dark-theme",
+  //     customClass: {
+  //       popup: 'swal-small-popup',
+  //       title: 'swal-title',
+  //       // content: 'swal-text',
+  //       confirmButton: 'swal-confirm-btn'
+  //     }
+  //   });
     
     
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
-  };
+  //   setFormData({
+  //     name: '',
+  //     email: '',
+  //     phone: '',
+  //     subject: '',
+  //     message: ''
+  //   });
+  // };
 
   // Animation variants
+ 
+ 
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      const res = await fetch("http://localhost:5000/api/form/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+  
+      // if (res.ok) {
+        toast.success("Message sent successfully");
+  
+        swal({
+          title: "Thank You!",
+          text: "I will get back to you soon.",
+          buttons: {
+            confirm: {
+              text: "OK",
+              value: true,
+              visible: true,
+              className: "swal-confirm-btn",
+              closeModal: true
+            }
+          },
+          className: "swal-dark-theme"
+        });
+  
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      // } 
+    } catch (error) {
+      toast.error("Something went wrong!");
+      console.error(error.message);
+    }
+  };
+  
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -87,6 +133,8 @@ const Connect_with_Me = () => {
     boxShadow: "0 20px 40px -10px rgba(102, 255, 204, 0.2)",
     transition: { type: 'spring', stiffness: 300 }
   };
+
+  
 
   return (
     <motion.div 

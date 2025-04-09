@@ -1,4 +1,4 @@
-import FormModel from "../models/FormModel.js";
+import FormModel from "../model/formModel.js";
 import nodemailer from "nodemailer";
 
 export const submitForm = async (req, res) => {
@@ -13,8 +13,8 @@ export const submitForm = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "your_gmail@gmail.com",
-        pass: "your_app_password" // Use app password, not your actual password
+        user: "vaidyavaishali214@gmail.com",
+        pass: "xqdm fglp asfq habw" // Use app password, not your actual password
       }
     });
 
@@ -38,5 +38,15 @@ export const submitForm = async (req, res) => {
   } catch (error) {
     console.error("Form submission error:", error);
     res.status(500).json({ error: "Failed to submit form" });
+  }
+};
+
+export const getFormSubmissions = async (req, res) => {
+  try {
+    const formSubmissions = await FormModel.find().sort({ createdAt: -1 }); // Sort by createdAt in descending order
+    res.status(200).json(formSubmissions);
+  } catch (error) {
+    console.error("Error fetching form submissions:", error);
+    res.status(500).json({ error: "Failed to fetch form submissions" });
   }
 };
