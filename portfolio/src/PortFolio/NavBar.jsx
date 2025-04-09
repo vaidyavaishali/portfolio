@@ -65,7 +65,7 @@ const NavBar = () => {
         </ul>
         {/* Responsive Menu */}
         <ul className={`duration-500 box-border md:hidden w-[100%] h-screen text-white fixed bg-black top-[80px] ${toggle ? 'left-0' : '-left-[200%]'}`}>
-        <a href="#home-page">
+        <a href="/">
           <li className={`p-5 nav-link box-border ${activeNav === '#home-page' ? 'active' : ''}`} onClick={() => { setActiveNav('#home-page'); setToggle(false); }}>Home</li>
           </a>
           <a href="#about-page">
